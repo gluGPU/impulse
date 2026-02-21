@@ -26,19 +26,19 @@ export type Body = {
 	
 	-- state
 	cframe: CFrame,
-	size: Vector3,
+	size: vector,
 	
 	-- velocities
-	linearVelocity: Vector3,
-	angularVelocity: Vector3,
+	linearVelocity: vector,
+	angularVelocity: vector,
 	
 	-- momentum
-	linearMomentum: Vector3,
-	angularMomentum: Vector3,
+	linearMomentum: vector,
+	angularMomentum: vector,
 	
 	-- other state if necessary lol
-	torque: Vector3,
-	force: Vector3,
+	torque: vector,
+	force: vector,
 	
 	-- inertia
 	invInertia: CFrame,
@@ -67,14 +67,14 @@ local function getWedgeInertia(mass: number, size: Vector3): Vector3
 	) / 6
 end
 
-local function getCubeInertia(mass: number, size: Vector3): Vector3
+local function getCubeInertia(mass: number, size: vector): vector
 	-- gets moment of inertia of a cube, we assume this
 	-- for all of the parts in our body
-	local x = size.X
-	local y = size.Y
-	local z = size.Z
+	local x = size.x
+	local y = size.y
+	local z = size.z
 	
-	return Vector3.new(
+	return vector.create(
 		mass * (y*y + z*z),
 		mass * (x*x + z*z),
 		mass * (x*x + y*y)

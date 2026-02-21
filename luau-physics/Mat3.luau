@@ -29,19 +29,19 @@ function Mat3.fromCFrame(cframe: CFrame): Mat3
 	}, Mat3)
 end
 
-function Mat3.fromVector(vec: Vector3): Mat3
+function Mat3.fromVector(vec: vector): Mat3
 	return setmetatable({
-		{vec.X, 0, 0},
-		{0, vec.Y, 0},
-		{0, 0, vec.Z},
+		{vec.x, 0, 0},
+		{0, vec.y, 0},
+		{0, 0, vec.z},
 	}, Mat3)
 end
 
-function Mat3.outerProduct(vec: Vector3): Mat3
+function Mat3.outerProduct(vec: vector): Mat3
 	-- v^T * v
-	local x = vec.X
-	local y = vec.Y
-	local z = vec.Z
+	local x = vec.x
+	local y = vec.y
+	local z = vec.z
 	
 	return setmetatable({
 		{x*x, x*y, x*z},
@@ -59,12 +59,12 @@ function Mat3.numMul(self: Mat3, x: number): Mat3
 	}, Mat3)
 end
 
-function Mat3.vecMul(self: Mat3, what: Vector3): Vector3
+function Mat3.vecMul(self: Mat3, what: vector): vector
 	-- multiply a mat3 by a vector
-	local x = what.X
-	local y = what.Y
-	local z = what.Z
-	return Vector3.new(
+	local x = what.x
+	local y = what.y
+	local z = what.z
+	return vector.create(
 		self[1][1] * x + self[2][1] * y + self[3][1] * z,
 		self[1][2] * x + self[2][2] * y + self[3][2] * z,
 		self[1][3] * x + self[2][3] * y + self[3][3] * z
@@ -90,11 +90,11 @@ function Mat3.matMul(self: Mat3, what: Mat3): Mat3
 	return product :: Mat3
 end
 
-function Mat3.vecAdd(self: Mat3, what: Vector3): Mat3
+function Mat3.vecAdd(self: Mat3, what: vector): Mat3
 	-- it's a vector
-	local x = what.X
-	local y = what.Y
-	local z = what.Z
+	local x = what.x
+	local y = what.y
+	local z = what.z
 	return setmetatable({
 		{self[1][1] + x, self[1][2], self[1][3]},
 		{self[2][1], self[2][2] + y, self[2][3]},
@@ -186,14 +186,14 @@ function Mat3.inverse(self: Mat3): Mat3
 end
 
 function Mat3.fromMatrix(
-	a: Vector3,
-	b: Vector3,
-	c: Vector3
+	a: vector,
+	b: vector,
+	c: vector
 ): Mat3
 	return setmetatable({
-		{ a.X, b.X, c.X },
-		{ a.Y, b.Y, c.Y },
-		{ a.Z, b.Z, c.Z },
+		{ a.x, b.x, c.x },
+		{ a.y, b.y, c.y },
+		{ a.z, b.z, c.z },
 	}, Mat3)
 end
 
