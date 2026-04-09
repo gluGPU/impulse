@@ -1,24 +1,16 @@
 {
-  "name": "impulse",
+  "name": "Impulse",
   "tree": {
-    "$className": "DataModel",
-    "ReplicatedStorage": {
-      "$className": "ReplicatedStorage",
-      "$ignoreUnknownInstances": true,
-      "luau-physics": {
-	      "$path": "luau-physics",
-        "$ignoreUnknownInstances": true
-      },
+    "$className": "Folder",
 
-      "luau-humanoid": {
-	      "$path": "luau-humanoid",
-        "$ignoreUnknownInstances": true
-      },
+    "luau-physics": {
+      "$path": "luau-physics",
+      "$ignoreUnknownInstances": true
+    },
 
-      "Simulation" : {
-        "$path": "Simulation.server.luau",
-        "$ignoreUnknownInstances": true
-      }
+    "luau-humanoid": {
+      "$path": "luau-humanoid",
+      "$ignoreUnknownInstances": true
     }
   }
 }
